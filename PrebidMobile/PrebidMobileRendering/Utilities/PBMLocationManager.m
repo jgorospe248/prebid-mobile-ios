@@ -157,16 +157,16 @@
 }
 
 - (void)startLocationUpdates {
-    
-    if (!self.locationUpdatesEnabled) {
-        return;
-    }
-    
-    if (![self isAuthorizedStatus:[[self.locationManager class] authorizationStatus]]) {
-        return;
-    }
-    
-    [self.locationManager startUpdatingLocation];
+//    
+//    if (!self.locationUpdatesEnabled) {
+//        return;
+//    }
+//    
+//    if (![self isAuthorizedStatus:[[self.locationManager class] authorizationStatus]]) {
+//        return;
+//    }
+//    
+//    [self.locationManager startUpdatingLocation];
 }
 
 - (void)stopLocationUpdates {
