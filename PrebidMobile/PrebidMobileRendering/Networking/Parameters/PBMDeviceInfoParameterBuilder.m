@@ -104,9 +104,14 @@
     //https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/skadnetwork.md#device-extension
     if (@available(iOS 14.0, *)) {
         NSNumber *atts = nil;
-        atts = @(self.deviceAccessManager.appTrackingTransparencyStatus);
+        if (Targeting.shared.forceEnableTracking) {
+            atts = @3;
+            lmt = @0;
+        } else {
+            atts = @(self.deviceAccessManager.appTrackingTransparencyStatus);
+            lmt = atts.intValue == ATTrackingManagerAuthorizationStatusAuthorized ? @(0) : @(1);
+        }
         bidRequest.device.extAtts.atts = atts;
-        lmt = atts.intValue == ATTrackingManagerAuthorizationStatusAuthorized ? @(0) : @(1);
         bidRequest.device.lmt = lmt;
     }
 

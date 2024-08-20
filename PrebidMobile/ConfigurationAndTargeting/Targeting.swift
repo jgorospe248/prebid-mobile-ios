@@ -127,6 +127,8 @@ public class Targeting: NSObject {
      */
     public var userExt: [String : AnyHashable]?
     
+    public var forceEnableTracking: Bool = false
+    
     // MARK: - COPPA
     
     /**
